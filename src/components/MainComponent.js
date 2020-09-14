@@ -32,7 +32,7 @@ render() {
         <Switch>
               <Route exact path='/product1' component={() => <Product1 catagory1={this.state.catagory1}
                />} />
-              <Route path='/product/:productId' component={ProductWithId} />
+              <Route path='/product1/:productId' component={ProductWithId} />
 
           </Switch>
         {/* <Product1 catagory1={this.state.catagory1} /> */}

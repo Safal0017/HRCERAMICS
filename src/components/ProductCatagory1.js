@@ -3,18 +3,15 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
   } from 'reactstrap';
-  import {Link} from 'react-router-dom';
+  import { Link } from 'react-router-dom';
 
-
-
-//   import { MDBMask, MDBView, MDBContainer, MDBRow, MDBCol } from "mdbreact";
-
+  
 //import {CATAGORY1} from '../shared/catagories';
 function RenderProductItem ({product}) {
     return (
         
         <Card className='card-primary'>
-                <Link to={`/product/${product.id}`} >
+                <Link to={`/product1/${product.id}`} >
                   <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
 
                   <CardImgOverlay>
@@ -33,7 +30,6 @@ const JumbotronUse =(props)=>{
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
-                                
                             </div>
                         </div>
                     </div>
@@ -73,7 +69,7 @@ function Product1(props){
                 <div className='row'>
                     {product}
                 </div>
-                </div>
+            </div>
             </div>
 
         )

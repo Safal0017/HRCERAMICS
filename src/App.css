@@ -74,15 +74,16 @@
 
 .jumbotron {
   padding:70px 30px 600px 30px;
-  margin:0px auto;
   margin-bottom: 60px;
-  /* background: #9575CD ; */
-  background-image: url('/assets/catagory1.jpg');
-  background-position: inherit;
+  background-image: url('/assets/catagory/catagory1.jpg');
   background-attachment:fixed;
-  color:black;
-  top: 0;
+  -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+ 
 }
+
 /* .product-cat h2{
 color: black;
 } */
