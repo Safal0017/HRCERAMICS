@@ -12,7 +12,7 @@ class Main extends Component{
     super(props);
     this.state={
         catagory1 :CATAGORY1,
-        selectedProduct:null
+        selectedProduct:null,
     };
 }
  onProductSelect(productId){
@@ -23,17 +23,20 @@ class Main extends Component{
 render() {
     const ProductWithId = ({match}) => {
         return(
-            <ProductDetails product={this.state.catagory1.filter((product) => product.id === parseInt(match.params.productId,10))[0]}/>
+            <ProductDetails product={this.state.catagory1.filter((product) => product.id === parseInt(match.params.productId,10))[0]}  />
         );
       };
+
+     
   return (
     <div>
        
         <Switch>
               <Route exact path='/product1' component={() => <Product1 catagory1={this.state.catagory1}
                />} />
+              {/* <Route path='/product1/:productId' component={ProductWithId} /> */}
               <Route path='/product1/:productId' component={ProductWithId} />
-
+              
           </Switch>
         {/* <Product1 catagory1={this.state.catagory1} /> */}
     </div>

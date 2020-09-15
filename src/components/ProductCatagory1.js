@@ -5,8 +5,7 @@ import {
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
 
-  
-//import {CATAGORY1} from '../shared/catagories';
+
 function RenderProductItem ({product}) {
     return (
         
@@ -26,10 +25,11 @@ function RenderProductItem ({product}) {
 };
 const JumbotronUse =(props)=>{
     return(
-                <Jumbotron>
+                <Jumbotron className="jumbotron1">
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
+                            
                             </div>
                         </div>
                     </div>
