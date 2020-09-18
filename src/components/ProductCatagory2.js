@@ -10,7 +10,7 @@ function RenderProductItem ({product}) {
     return (
         
         <Card className='card-primary'>
-                <Link to={`/product1/${product.id}`} >
+                <Link to={`/product2/${product.id}`} >
                   <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
 
                   <CardImgOverlay className="product-name">
@@ -25,7 +25,7 @@ function RenderProductItem ({product}) {
 };
 const JumbotronUse =(props)=>{
     return(
-                <Jumbotron className="jumbotron1">
+                <Jumbotron className="sizejumbotron1">
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
@@ -45,7 +45,7 @@ const Content =(props)=>{
             <span className='icon'>
                 <h2 className='product-cat'><strong>Tiles Catagories</strong></h2>
                 {/* <br/> Catagories by Tile Types</h2> */}
-                <h4 className='product-type'>Catagories by Tile Types</h4></span>
+                <h4 className='product-type'>Catagories by Tile Size</h4></span>
             </div>
         </div>
         )
@@ -53,8 +53,8 @@ const Content =(props)=>{
 
 
 
-function Product1(props){
-    const product= props.catagory1.map((product)=>{
+function Product2(props){
+    const product= props.catagory2.map((product)=>{
             return (
                 <div className='col-12 col-md-4  cardtile'key={product.id}>      
                     <RenderProductItem product={product} />
@@ -79,4 +79,4 @@ function Product1(props){
 
 
 
-export default Product1;
+export default Product2;
