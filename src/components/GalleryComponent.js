@@ -24,12 +24,6 @@ function GalleryImg(props) {
 
   return (
     <div className="gallery">
-        {/* <div className="row">
-            
-        </div>
-        <div className="row">
-            
-        </div> */}
         
       <Gallery photos={props.photos} onClick={openLightbox} />
       {console.log(props.photos)} 

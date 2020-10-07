@@ -1,0 +1,1 @@
+export {CATAGORY2} from '../shared/sizes';

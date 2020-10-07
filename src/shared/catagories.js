@@ -53,7 +53,8 @@ export const CATAGORY1=
                 width: 4,
                 height: 3,
                 featured: true,
-                recent: true
+                //recent: true
+                category: ['popular', 'recent']
               },
           
               {
@@ -62,55 +63,64 @@ export const CATAGORY1=
                 width: 1,
                 height: 1,
                 featured: true,
-                recent: true
+                //recent: true
+                category: ['popular']
               },
               {
                 id:2,
                 src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
                 width: 3,
                 height: 4,
-                recent: true
+                featured: true,
+                //recent: true
+                category: ['recent']
               },
               {
                 id:3,  
                 src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
                 width: 3,
                 height: 4,
-                recent: true
+                //recent: true
+                category: ['popular']
               },
               {
                 id:4,
                 src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
                 width: 3,
                 height: 4,
-                popular: true
+                //popular: true
+                category: ['recent']
               },
               {
                 id:5,
                 src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
                 width: 4,
                 height: 3,
-                popular: true
+                //popular: true
+                category: ['popular', 'recent']
               },
               {
                 id:6,
                 src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
                 width: 3,
                 height: 4,
-                popular: true
+                //popular: true
+                category: ['popular']
               },
               {
                 id:7,
                 src: "https://source.unsplash.com/PpOHJezOalU/800x599",
                 width: 4,
                 height: 3,
-                popular: true
+                //popular: true
+                category: ['recent']
               },
               {
                 id:8,
                 src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
                 width: 4,
-                height: 3
+                height: 3,
+                category: ['popular', 'recent']
               }
         ]
     },
