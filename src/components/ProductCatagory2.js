@@ -4,7 +4,7 @@ import {
     CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
-
+  import { Loading } from './LoadingComponent';
 
 function RenderProductItem ({product}) {
     return (
@@ -61,6 +61,30 @@ function Product2(props){
                 </div>
             )
          });
+        // return(
+        //     <div>
+        //         <JumbotronUse/>
+        //         <div className='container'>          
+        //         <Content/>
+        //         <div className='row'>
+        //             {product}
+        //         </div>
+        //     </div>
+        //     </div>
+
+        // )
+        if (props.catagoryLoading) {
+            return(
+                
+                    <Loading />
+            );
+        }
+        else if (props.catagoryErrMess) {
+            return(
+                    <h4>{props.catagoryErrMess}</h4>
+            );
+        }
+        else
         return(
             <div>
                 <JumbotronUse/>

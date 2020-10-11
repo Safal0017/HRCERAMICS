@@ -6,10 +6,10 @@ import Main from './components/MainComponent';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-//import { ConfigureStore } from './redux/configureStore';
-import { store } from './redux/store'
+import { ConfigureStore } from './redux/configureStore';
+//import { store } from './redux/store'
 
-//const store = ConfigureStore();
+const store = ConfigureStore();
 
 class App extends Component{
   

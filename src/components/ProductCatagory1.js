@@ -4,9 +4,22 @@ import {
     CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
+  import { Loading } from './LoadingComponent';
 
 
-function RenderProductItem ({product}) {
+function RenderProductItem ({product/* ,isLoading,errMess */}) {
+    // if (isLoading) {
+    //     {console.log(isLoading)}
+    //     return(
+    //             <Loading />
+    //     );
+    // }
+    // else if (errMess) {
+    //     return(
+    //             <h4>{errMess}</h4>
+    //     );
+    // }
+    // else 
     return (
         
         <Card className='card-primary'>
@@ -23,16 +36,28 @@ function RenderProductItem ({product}) {
                 </Card>
     );
 };
-const JumbotronUse =(props)=>{
-    return(
-                <Jumbotron className="jumbotron1">
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
+// const JumbotronUse =(props)=>{
+//     return(
+//                 <Jumbotron className="jumbotron1">
+//                     <div className="container">
+//                         <div className="row row-header">
+//                             <div className="col-12 col-sm-6">
                             
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </Jumbotron>
+//     )
+// }
+const JumbotronUse =({isLoading,errMess})=>{
+    return(
+                <Jumbotron className='jumbotron1'>
+                        <div className="container">
+                            <div className="row row-header">
+                                <div className="col-12 col-sm-6">
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </Jumbotron>
     )
 }
@@ -57,22 +82,50 @@ function Product1(props){
     const product= props.catagory1.map((product)=>{
             return (
                 <div className='col-12 col-md-4  cardtile'key={product.id}>      
-                    <RenderProductItem product={product} />
+                    <RenderProductItem product={product}
+                    //   isLoading={props.catagoryLoading} 
+                    //   errMess={props.catagoryErrMess}
+                    />
                 </div>
             )
          });
-        return(
-            <div>
-                <JumbotronUse/>
-                <div className='container'>          
-                <Content/>
-                <div className='row'>
-                    {product}
-                </div>
-            </div>
-            </div>
+        // return(
+        //     <div>
+        //         <JumbotronUse/>
+        //         <div className='container'>          
+        //         <Content/>
+        //         <div className='row'>
+        //             {product}
+        //         </div>
+        //     </div>
+        //     </div>
 
-        )
+        // )
+        if (props.catagoryLoading) {
+            return(
+                
+                    <Loading />
+            );
+        }
+        else if (props.catagoryErrMess) {
+            return(
+                    <h4>{props.catagoryErrMess}</h4>
+            );
+        }
+        else
+            return(
+                
+                <div>
+                    <JumbotronUse />
+                    <div className='container'>          
+                    <Content/>
+                    <div className='row'>
+                        {product}
+                    </div>
+                </div>
+                </div>
+    
+            )
     }
 
 
