@@ -94,6 +94,15 @@ function Product2(props){
                     {product}
                 </div>
             </div>
+            <Jumbotron fluid className="text-center bg-cover mt-5 mb-5 jumbotron4"> 
+                    <h4 className="mb-4 text-white">EXPLORE ALL OUR PRODUCTS</h4>
+                    <Link to={`/product1/`} >
+                    <Button color="primary" size="lg" outline className="mr-md-5 mb-md-0 mr-3 text-white">Explore by type</Button>
+                    </Link>
+                    <Link to={`/product2/`} >
+                    <Button color="primary" size="lg" outline className="ml-md-5 text-white">Explore by size</Button>
+                    </Link>
+                    </Jumbotron>
             </div>
 
         )

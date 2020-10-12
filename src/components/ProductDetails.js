@@ -14,13 +14,15 @@ const ProductDetails =(props)=>{
     } 
    
     return (
-      <div>
+      <div> 
+            
             <Jumbotron fluid className='sizejumbotron2'>
             <Container fluid>
-                <h1 className="display-5">{props.product.name}</h1>
+                <h1 className="display-5 mt-5">{props.product.name}</h1>
                 <p className="lead">{props.product.description}</p>
             </Container>
             </Jumbotron>
+            
                 <div className="row btngroup">
                     <div className="col-md-4"></div>
                     <div className="btn-group btn-group-lg col-md-4 text-left" >

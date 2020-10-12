@@ -1,1 +1,0 @@
-export {CATAGORY2} from '../shared/catagories2';

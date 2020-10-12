@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import Product1 from './ProductCatagory1';
 import Product2 from './ProductCatagory2';
 import Shop from './shopComponent';
+import Home from './HomeComponent';
+import NavBar from './NavbarComponent';
+import Bottom from './BottomComponent';
+import Contact from './ContactComponent';
 import ProductDetails from './ProductDetails';
+import About from './AboutComponent';
 import {fetchCatagory1} from '../redux/product1Actions';
 import {fetchCatagory2} from '../redux/product2Actions';
 import { Navbar, NavbarBrand,NavLink, Nav,Collapse,NavItem,Jumbotron, NavbarToggler, 
@@ -19,7 +24,9 @@ const mapStateToProps = state => {
     return {
         catagory1: state.catagory1,
         catagory2: state.catagory2,
-        shopdata: state.shopDetails 
+        shopdata: state.shopDetails,
+        ratings: state.ratings
+
         
     }
 }
@@ -87,8 +94,10 @@ render() {
      
   return (
     <div>
-       
+              <NavBar/>
         <Switch>
+        <Route path="/home" component={() => 
+            <Home categories={this.props.catagory1.catagory1}/> } />
               <Route exact path='/product1' component={() => 
               <Product1 catagory1={this.props.catagory1.catagory1}
               catagoryLoading={this.props.catagory1.isLoading}
@@ -103,8 +112,14 @@ render() {
               <Route path='/product2/:productId' component={ProductWithIdts} />
               
               <Route exact path='/shop' component={ProductWithIdsg} />
+              <Route exact path="/contact" component={() => 
+              <Contact ratings={this.props.ratings.ratings}/>} ></Route>
               {console.log(this.props.shopdata.shop)}
+              <Route exact path="/about" component={About}></Route>
+              <Redirect to="/home"/>
+
           </Switch>
+          {this.props.catagory1.isLoading?null:<Bottom/>}
         {/* <Product1 catagory1={this.props.catagory1} /> */}
     </div>
 )
