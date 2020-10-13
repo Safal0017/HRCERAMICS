@@ -5,10 +5,11 @@ import {
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
   import { Loading } from './LoadingComponent';
+  import { Fade  } from "react-awesome-reveal";
 
 function RenderProductItem ({product}) {
     return (
-        
+        <Fade>
         <Card className='card-primary'>
                 <Link to={`/product2/${product.id}`} >
                   <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
@@ -21,6 +22,7 @@ function RenderProductItem ({product}) {
                    </CardBody>
                 </Link>                   
                 </Card>
+        </Fade>
     );
 };
 const JumbotronUse =(props)=>{

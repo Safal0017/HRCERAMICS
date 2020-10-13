@@ -5,6 +5,7 @@ import {
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
   import { Loading } from './LoadingComponent';
+  import { Fade  } from "react-awesome-reveal";
 
 
 function RenderProductItem ({product/* ,isLoading,errMess */}) {
@@ -21,7 +22,7 @@ function RenderProductItem ({product/* ,isLoading,errMess */}) {
     // }
     // else 
     return (
-        
+        <Fade delay={1000}>
         <Card className='card-primary'>
                 <Link to={`/product1/${product.id}`} >
                   <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
@@ -34,6 +35,7 @@ function RenderProductItem ({product/* ,isLoading,errMess */}) {
                    </CardBody>
                 </Link>                   
                 </Card>
+        </Fade >
     );
 };
 // const JumbotronUse =(props)=>{

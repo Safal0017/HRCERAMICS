@@ -87,7 +87,7 @@ class Home2 extends Component
                         {displayCategory}
                     </div>
                 </div>
-                <Jumbotron fluid>
+                <Jumbotron fluid p-5> 
                     <UncontrolledCarousel items={items}></UncontrolledCarousel>
                 </Jumbotron>
 

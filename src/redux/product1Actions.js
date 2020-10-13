@@ -6,6 +6,12 @@ import * as ActionTypes from './ActionTypes';
     }
 } */
 
+export const postRatings = (ratings) => ({
+
+    type: ActionTypes.POST_RATINGS,
+    payload: ratings
+
+});
 
 export const fetchCatagory1 = () => (dispatch) => {
 

@@ -166,6 +166,7 @@ margin-bottom: 50px;
 
 
 /* mihir */
+
 .jumbotron
 {
   background-color: #ffffff;
@@ -174,7 +175,7 @@ margin-bottom: 50px;
 .nav-link:active
 {
   color: #ffffff;
-  background-color: #0089BA;
+  /* background-color: #0089BA; */
 }
 
 .justifiedText
@@ -189,11 +190,14 @@ margin-bottom: 50px;
   background-size: cover;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5)), url("/assets/sample.jpg");
 }
+
 .bg-cover-about
 {
-  background-position: right;
+  background-position: center;
   background-size: cover;
   background-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1)), url("/assets/images/shop-about.jpg");
+  max-width: 100%;
+  height: auto;
 }
 
 .bg-cover-about-2
@@ -201,6 +205,8 @@ margin-bottom: 50px;
   background-position: bottom;
   background-size: cover;
   background-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1)), url("/assets/images/shop-about-message.jpg");
+  max-width: 100%;
+  height: auto;
 }
 
 .bg-cover-about-3
@@ -208,6 +214,8 @@ margin-bottom: 50px;
   background-position: right;
   background-size: cover;
   background-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1)), url("/assets/images/shop-about-developers.jpg");
+  max-width: 100%;
+  height: auto;
 }
 
 .feature-card, .info-card
@@ -291,6 +299,7 @@ margin-bottom: 50px;
 }
 
 /*Mihir*/
+
 .anchor
 {
   color: #ffffff;
@@ -303,11 +312,13 @@ margin-bottom: 50px;
 
 .text-logo
 {
-  background-attachment: fixed;
+ /*  background-attachment: fixed;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
+  max-width: 100%;
+  height: auto;
 }
 
 .anchor-about:hover 
@@ -361,7 +372,8 @@ margin-bottom: 50px;
 address{
   font-size:80%;
   margin:0px;
-  color:#0f0f0f;
+  /* color:#0f0f0f; */
+  color: whitesmoke;
 }
 
 /* .navbar-dark {
@@ -418,6 +430,10 @@ address{
  
 .show.dropdown .dropdown-toggle::after {
   transform: translateY(3px);
+}
+
+.navbar-toggler{
+  color: whitesmoke;
 }
 
 /*---FOOTER----*/
@@ -732,3 +748,4 @@ address{
 	background-position: center;
 	height: 100vh; 
 } */
+

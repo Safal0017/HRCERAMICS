@@ -1,8 +1,10 @@
 // import {createStore} from 'redux';
+import { createForms } from 'react-redux-form';
  import { Catagory1 } from './Catagory1'
 import {Catagory2} from './Catagory2';
 import { ShopDetails } from './shop';
 // export const store = createStore(productReducer)
+import { InitialFeedback, InitialRating } from './forms';
 import {initialStateRating, Ratings } from './rating';
 
 import {createStore, combineReducers, applyMiddleware } from 'redux';
@@ -21,6 +23,10 @@ export const ConfigureStore = ()=>{
         shopDetails: ShopDetails,
         ratings: Ratings,
         initialStateRating: initialStateRating,
+        ...createForms({
+          feedback: InitialFeedback,
+          rating: InitialRating
+          })
     }),
     applyMiddleware(thunk, logger)
   )

@@ -10,6 +10,8 @@ import ProductDetails from './ProductDetails';
 import About from './AboutComponent';
 import {fetchCatagory1} from '../redux/product1Actions';
 import {fetchCatagory2} from '../redux/product2Actions';
+import { actions } from 'react-redux-form';
+import { postRatings } from '../redux/product1Actions';
 import { Navbar, NavbarBrand,NavLink, Nav,Collapse,NavItem,Jumbotron, NavbarToggler, 
    } from 'reactstrap';
 import { Form } from 'reactstrap';
@@ -34,7 +36,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch)=>({
     fetchCatagory1: () => { dispatch(fetchCatagory1())},
     fetchCatagory2: () => { dispatch(fetchCatagory2())},
-    fetchShop: () => { dispatch(fetchShop())}
+    fetchShop: () => { dispatch(fetchShop())},
+    postRatings: (userRating) => {dispatch(postRatings(userRating))},
+    resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
+    resetRatingForm: () => {dispatch(actions.reset('rating'))}
 }) ;
 
 
@@ -112,8 +117,10 @@ render() {
               <Route path='/product2/:productId' component={ProductWithIdts} />
               
               <Route exact path='/shop' component={ProductWithIdsg} />
-              <Route exact path="/contact" component={() => 
-              <Contact ratings={this.props.ratings.ratings}/>} ></Route>
+              <Route exact path="/contact" component={() => <Contact ratings={this.props.ratings.ratings}
+                                                                            postRatings={this.props.postRatings}
+                                                                            resetFeedbackForm={this.props.resetFeedbackForm}
+                                                                            resetRatingForm={this.props.resetRatingForm} />} ></Route>
               {console.log(this.props.shopdata.shop)}
               <Route exact path="/about" component={About}></Route>
               <Redirect to="/home"/>
