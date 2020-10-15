@@ -22,7 +22,7 @@ export const ConfigureStore = ()=>{
         catagory2 : Catagory2,
         shopDetails: ShopDetails,
         ratings: Ratings,
-        initialStateRating: initialStateRating,
+        //initialStateRating: initialStateRating,
         ...createForms({
           feedback: InitialFeedback,
           rating: InitialRating

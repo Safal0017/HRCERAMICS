@@ -1,6 +1,7 @@
 //import Shop from '../components/shopComponent';
 import { SHOPDATA } from './shopTypes';
 import * as ActionTypes from './ActionTypes';
+import { baseUrl } from '../shared/baseUrl';
 /* 
 export const shopDetails = ()=>{
     return{
@@ -13,9 +14,24 @@ export const fetchShop = () => (dispatch) => {
 
     dispatch(catagoryLoading(true));
 
-    setTimeout(() => {
-        dispatch(addCatagory(SHOPDATA));
-    }, 1000);
+    return fetch(baseUrl + 'SHOPDATA')
+    .then(response => {
+        if(response.ok){
+            return response;
+        }
+        else
+        {
+            var error  = new Error("Error " + response.status + ":" + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    }, error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(SHOPDATA => dispatch(addCatagory(SHOPDATA)))
+    .catch(error => dispatch(catagoryFailed(error.message)));
 }
 
 export const catagoryLoading = () => ({

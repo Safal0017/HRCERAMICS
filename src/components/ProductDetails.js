@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Jumbotron, Container } from 'reactstrap';
 import GalleryImg from './GalleryComponent';
-
+import { baseUrl } from '../shared/baseUrl';
 
 const ProductDetails =(props)=>{
      

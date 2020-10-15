@@ -10,8 +10,9 @@ import ProductDetails from './ProductDetails';
 import About from './AboutComponent';
 import {fetchCatagory1} from '../redux/product1Actions';
 import {fetchCatagory2} from '../redux/product2Actions';
+import { fetchRatings, postRatings} from '../redux/product1Actions';
 import { actions } from 'react-redux-form';
-import { postRatings } from '../redux/product1Actions';
+//import { postRatings } from '../redux/product1Actions';
 import { Navbar, NavbarBrand,NavLink, Nav,Collapse,NavItem,Jumbotron, NavbarToggler, 
    } from 'reactstrap';
 import { Form } from 'reactstrap';
@@ -37,7 +38,8 @@ const mapDispatchToProps = (dispatch)=>({
     fetchCatagory1: () => { dispatch(fetchCatagory1())},
     fetchCatagory2: () => { dispatch(fetchCatagory2())},
     fetchShop: () => { dispatch(fetchShop())},
-    postRatings: (userRating) => {dispatch(postRatings(userRating))},
+    postRatings: (ratings) => {dispatch(postRatings(ratings))},
+    fetchRatings: () => {dispatch(fetchRatings())},
     resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
     resetRatingForm: () => {dispatch(actions.reset('rating'))}
 }) ;
@@ -60,6 +62,7 @@ componentDidMount() {
     this.props.fetchCatagory1();
     this.props.fetchCatagory2();
     this.props.fetchShop();
+    this.props.fetchRatings();
   };
 
 

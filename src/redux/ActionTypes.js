@@ -12,4 +12,10 @@ export const CATAGORY3_LOADING = 'CATAGORY3_LOADING';
 export const CATAGORY3_FAILED = 'CATAGORY3_FAILED';
 export const ADD_CATAGORY3 = 'ADD_CATAGORY3';
 
+// export const POST_RATINGS = 'POST_RATINGS';
+// export const ADD_RATING = 'ADD_RATING';
+
 export const POST_RATINGS = 'POST_RATINGS';
+export const SHOW_RATINGS = 'SHOW_RATINGS';
+export const ADD_RATINGS = 'ADD_RATINGS';
+export const RATINGS_FAILED = 'RATINGS_FAILED';

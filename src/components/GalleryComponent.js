@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { render } from "react-dom";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-
+import { baseUrl } from '../shared/baseUrl';
 
 function GalleryImg(props) {
     //first parameter is the initial state and contains initial state value
@@ -26,7 +26,7 @@ function GalleryImg(props) {
     <div className="gallery">
         
       <Gallery photos={props.photos} onClick={openLightbox} />
-      {console.log(props.photos)} 
+      {console.log(baseUrl+ props.photos)} 
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

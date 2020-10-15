@@ -6,6 +6,7 @@ import {
   import { Link } from 'react-router-dom';
   import { Loading } from './LoadingComponent';
   import { Fade  } from "react-awesome-reveal";
+import { baseUrl } from '../shared/baseUrl';
 
 
 function RenderProductItem ({product/* ,isLoading,errMess */}) {
@@ -25,7 +26,7 @@ function RenderProductItem ({product/* ,isLoading,errMess */}) {
         <Fade delay={1000}>
         <Card className='card-primary'>
                 <Link to={`/product1/${product.id}`} >
-                  <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
+                  <CardImg width="100%"className='cardimg' /* src={product.image} */ src={baseUrl+ product.image} alt={baseUrl+ product.name} />
 
                   <CardImgOverlay className="product-name">
                       <CardTitle>{product.name}</CardTitle>

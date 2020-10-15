@@ -1,5 +1,6 @@
 import {CATAGORY2} from './product2Types';
 import * as ActionTypes from './ActionTypes';
+import { baseUrl } from '../shared/baseUrl';
 /* export const catagory2 = ()=>{
     return{
         type: CATAGORY2
@@ -11,9 +12,24 @@ export const fetchCatagory2 = () => (dispatch) => {
 
     dispatch(catagoryLoading(true));
 
-    setTimeout(() => {
-        dispatch(addCatagory(CATAGORY2));
-    }, 1000);
+    return fetch(baseUrl + 'CATAGORY2')
+    .then(response => {
+        if(response.ok){
+            return response;
+        }
+        else
+        {
+            var error  = new Error("Error " + response.status + ":" + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    }, error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(CATAGORY2 => dispatch(addCatagory(CATAGORY2)))
+    .catch(error => dispatch(catagoryFailed(error.message)));
 }
 
 export const catagoryLoading = () => ({
