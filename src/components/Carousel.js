@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Jumbotron, UncontrolledCarousel } from 'reactstrap';
 
 
-
-
 class Carousel extends Component {
     render() {
        

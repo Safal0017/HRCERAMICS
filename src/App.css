@@ -63,7 +63,13 @@
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
     background-size: 100% 100%;
-
+    text-align: center;
+    color: black;
+    
+    
+}
+.text-margin{
+  margin-top: 150px;
 }
 /* .jumbotron2{
   text-align: center;

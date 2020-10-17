@@ -1,11 +1,6 @@
-import {CATAGORY2} from './product2Types';
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
-/* export const catagory2 = ()=>{
-    return{
-        type: CATAGORY2
-    }
-} */
+
 
 
 export const fetchCatagory2 = () => (dispatch) => {

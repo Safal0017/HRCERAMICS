@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
+    Jumbotron
   } from 'reactstrap';
-  import { Link } from 'react-router-dom';
+
   import GalleryImg from './GalleryComponent';
   import { Loading } from './LoadingComponent';
 
@@ -38,19 +37,6 @@ const Content =(props)=>{
 function Shop(props){
     const [buttonid, setCurrentImage] = useState(props.item.filter((product)=>product.id === 1));
     console.log(props.item.filter((product)=>product.id === 1))
-
-    /* const all = () => {
-      setCurrentImage(0);
-    };
-    
-    const recent = () => {
-      setCurrentImage(1);
-    }; */
-    /* const handleFilterCategory = (match) => {
-        //const new_array = props.item.filter(item => item.category && item.category.includes(name));
-        //const new_array = props.item.gallery.filter((product) => product.id === 0);
-        setCurrentImage(new_array)
-    }  */
     
        
         if (props.catagoryLoading) {
@@ -72,21 +58,18 @@ function Shop(props){
                 <Content/>
                 <div className="row btngroup">
                     <div className="btn-group btn-group-lg col-md-6 text-left ">
-                        {/* <button onClick={all} type="button" className=" trends all btn btn-sm">Quick Glance to the shop</button>
-                        <button onClick={recent} type="button" className=" trends btn btn-sm">Included Brands</button> */}
+                        
                         <button onClick={() => setCurrentImage(props.item.filter((product)=>product.id === 1))} type="button" className=" trends all btn btn-sm">Quick Glance to the shop</button>
                         <button onClick={() => setCurrentImage(props.item.filter((product)=>product.id === 0))} type="button" className=" trends all btn btn-sm">Included Brands</button>
-                        {/* <button onClick={() => handleFilterCategory('recent')} type="button" className=" trends btn btn-sm">Included Brands</button> */}
+                        
                     </div>
                     <div class="col-md-6"></div>
-                    {/* <div class="col-md-4"></div> */}
+                    
                 </div>
                 {console.log(buttonid)}
                 {buttonid.map(buttonid => 
                             <GalleryImg key={buttonid.id} photos={buttonid.gallery} />)}
-                 {/* {<GalleryImg key={buttonid.id} photos={buttonid.gallery} />} */} 
-                    {/* {buttonid === 0 && <GalleryImg photos ={props.item}/>}
-                    {buttonid === 1 && <GalleryImg photos ={props.item.filter((photo)=>photo.recent)}/>} */}
+                
             </div>
             </div>
 

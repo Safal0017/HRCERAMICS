@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Jumbotron, Container } from 'reactstrap';
+import { Jumbotron, Container, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import GalleryImg from './GalleryComponent';
-import { baseUrl } from '../shared/baseUrl';
+import { Link } from 'react-router-dom';
 
 const ProductDetails =(props)=>{
      
@@ -21,8 +21,7 @@ const ProductDetails =(props)=>{
                 <h1 className="display-5 mt-5">{props.product.name}</h1>
                 <p className="lead">{props.product.description}</p>
             </Container>
-            </Jumbotron>
-            
+            </Jumbotron> 
                 <div className="row btngroup">
                     <div className="col-md-4"></div>
                     <div className="btn-group btn-group-lg col-md-4 text-left" >
@@ -32,11 +31,27 @@ const ProductDetails =(props)=>{
                     </div>
                     <div class="col-md-4"></div>
                 </div>  
+                <div className="row ml-5 mt-2">
+                    {console.log(props.product.temp)}
+                    {props.product.temp === 1 && <Breadcrumb>
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to={`/product1`}>Tile Types</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>{props.product.name}</BreadcrumbItem>
+                        </Breadcrumb>  
+                        }
+                        {props.product.temp === 2 && <Breadcrumb>
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to={`/product2`}>Tile Size</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>{props.product.name}</BreadcrumbItem>
+                        </Breadcrumb>  
+                        }
+                                      
+                    </div>    
                         {<GalleryImg key={buttonid.id} photos={buttonid} />}
                           
                             {/* buttonid.map(buttonid =>
                             <GalleryImg key={buttonid.id} photos={buttonid} />) */}
-                        
+                      
         </div>
     );
 }

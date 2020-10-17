@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { CardBody, CardDeck, CardText, CardTitle ,Card, Jumbotron, CardFooter, CardGroup } from 'reactstrap';
+import { CardBody, CardDeck, CardText, CardTitle ,Card, Jumbotron, CardFooter } from 'reactstrap';
 import { Flip, Slide } from 'react-awesome-reveal';
 import { LightSpeed } from 'react-reveal';
 

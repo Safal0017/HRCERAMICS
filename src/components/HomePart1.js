@@ -149,7 +149,7 @@ class Home1 extends Component{
                         <Card className="feature-card mt-2 mt-md-0">
                             <CardImg width="100%" src= {category.image} alt="Image" className="card-img-top"></CardImg>
                             <CardImgOverlay className="d-flex justify-content-center align-items-center">
-                                <Link to={`/product1`} className="feature-title"><strong>{category.name}</strong></Link>
+                                <Link to={`/product1/${category.id}`} className="feature-title"><strong>{category.name}</strong></Link>
                             </CardImgOverlay>    
                         </Card>
                     </div>

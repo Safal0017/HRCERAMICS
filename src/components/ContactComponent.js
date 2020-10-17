@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import Rating from 'react-rating';
 import { Control, Errors, Form } from 'react-redux-form';
 import { Badge, Button, Jumbotron, Label, Toast, ToastBody } from 'reactstrap';
-// import {ReactBingmaps} from 'react-bingmaps';
+//import {ReactBingmaps} from 'react-bingmaps';
 import * as emailjs from 'emailjs-com';
-import { LightSpeed, Slide } from 'react-reveal';
+import { Slide } from 'react-reveal';
 import { Fade } from 'react-awesome-reveal';
+
 
 const required = (val) => val && val.length;
 const minLength = (len) => (val) => !(val) || (val.length >= len);
@@ -23,16 +24,16 @@ class Contact extends Component
             showFeedbackToast: false,
             showRatingToast: false,
             rating: 5,
-            // map: {
-            //     bingmapKey: ""/*"Aivc_Y6gsUsOPIRdtvdwW4Tvz_g3p4pILk65NI5OTvxu-MauujPqg9ZPQDdaERZ8"*/,
-            //     infoboxesWithPushPins: [
-            //         {
-            //             "location":[21.71525, 73.0185057], 
-            //             "infoboxOption": { title: 'HR Ceramics', description: '1st Floor, Radhakrishna Shopping, Tulsidham, Zadeshwar Road, Bharuch-3920001' },
-            //             "pushPinOption":{ title: 'HR Ceramics', description: 'Bharuch' }
-            //         }
-            //     ],
-            // }
+            map: {
+                bingmapKey: "Aivc_Y6gsUsOPIRdtvdwW4Tvz_g3p4pILk65NI5OTvxu-MauujPqg9ZPQDdaERZ8"/*"Aivc_Y6gsUsOPIRdtvdwW4Tvz_g3p4pILk65NI5OTvxu-MauujPqg9ZPQDdaERZ8"*/,
+                infoboxesWithPushPins: [
+                    {
+                        "location":[21.71525, 73.0185057], 
+                        "infoboxOption": { title: 'HR Ceramics', description: '1st Floor, Radhakrishna Shopping, Tulsidham, Zadeshwar Road, Bharuch-3920001' },
+                        "pushPinOption":{ title: 'HR Ceramics', description: 'Bharuch' }
+                    }
+                ],
+            }
         }
         this.submitFeedback = this.submitFeedback.bind(this);
         this.changeRating = this.changeRating.bind(this);
@@ -52,21 +53,21 @@ class Contact extends Component
 
     submitFeedback(values)
     {
-        // let templateParams = {
-        //     from_name: values.fullname,
-        //     from_email: values.email,
-        //     from_mobile_no: values.phone,
-        //     message: values.feedback
-        // }
+        let templateParams = {
+            from_name: values.fullname,
+            from_email: values.email,
+            from_mobile_no: values.phone,
+            message: values.feedback
+        }
 
-        // emailjs.send(
-        //     'contact_hrceramics',
-        //     'template_5ut10br',
-        //     templateParams,
-        //     'user_UEmulTtZ0fFeoZtcGlpDk'
-        // )
-        // .then()
-        // .catch();
+        emailjs.send(
+            'contact_hrceramics',
+            'template_5ut10br',
+            templateParams,
+            'user_UEmulTtZ0fFeoZtcGlpDk'
+        )
+        .then()
+        .catch();
 
         this.setState({ showFeedbackToast: true }, () => {
             window.setTimeout(() => {
@@ -75,7 +76,7 @@ class Contact extends Component
             }, 2000)
         });
 
-        //alert("Name: " + values.fullname + "\nEmail: " + values.email + "\nPhone: " + values.phone + "\nFeedback: " + values.feedback + "\nSubmitted Successfully");
+        alert("Name: " + values.fullname + "\nEmail: " + values.email + "\nPhone: " + values.phone + "\nFeedback: " + values.feedback + "\nSubmitted Successfully");
 
     }
 
@@ -89,20 +90,20 @@ class Contact extends Component
 
         let ratingMessage = "Rating: " + this.state.rating; 
 
-        // let templateParams = {
-        //     from_email: values.email,
-        //     rating: ratingMessage,
-        //     message: values.comments
-        // }
+        let templateParams = {
+            from_email: values.email,
+            rating: ratingMessage,
+            message: values.comments
+        }
 
-        // emailjs.send(
-        //     'contact_hrceramics',
-        //     'template_5ut10br',
-        //     templateParams,
-        //     'user_UEmulTtZ0fFeoZtcGlpDk'
-        // )
-        // .then()
-        // .catch();
+        emailjs.send(
+            'contact_hrceramics',
+            'template_5ut10br',
+            templateParams,
+            'user_UEmulTtZ0fFeoZtcGlpDk'
+        )
+        .then()
+        .catch();
 
        
         this.setState({ showRatingToast: true}, () => {
@@ -113,7 +114,7 @@ class Contact extends Component
             }, 2000)
         });
 
-        //alert("Your "+ ratingMessage + "\nEmail: " + values.email + "\nComments: " + values.comments + "\nSubmitted Succesfully");
+        alert("Your "+ ratingMessage + "\nEmail: " + values.email + "\nComments: " + values.comments + "\nSubmitted Succesfully");
     }
 
     render()
@@ -123,7 +124,7 @@ class Contact extends Component
 
             var words = ['one', 'two', 'three', 'four', 'five'];
             var rate = words[i-1];
-
+          
             return(
                 <div className="col-4 p-2">
                     <Rating start={0} stop={5} step={1}
@@ -139,7 +140,9 @@ class Contact extends Component
 
         });
         
-
+        
+    
+   
         return(
             <React.Fragment>
 
@@ -149,7 +152,9 @@ class Contact extends Component
                             <h2>Ways to contact us</h2>    
                         </div>    
                     </div>    
+                    
                     <div className="row">
+                    
                         <div className="col-12 col-md-6 pl-5">
                             <Slide left>
                                 <Form model="feedback" onSubmit={(values) => this.submitFeedback(values)}>
@@ -226,8 +231,10 @@ class Contact extends Component
                                         </div>
                                     </div>
                                 </Form>
-                            </Slide>
+                                </Slide>
                         </div>
+                        
+                        
                         <div className="col-12 col-md-6 pl-5">
                             <Slide right>
                                 <Form model="rating"  onSubmit={(values) => this.submitRating(values)}>
@@ -293,10 +300,10 @@ class Contact extends Component
                                     </div>
 
                                 </Form>  
-                            </Slide>
+                                </Slide>
                         </div>
-
                     </div>
+                    
                     
 
                     <div className="row p-2 m-3">
@@ -337,11 +344,12 @@ class Contact extends Component
                             </a>
                         </div>
                     </div>
-                    <LightSpeed>
+                    <Fade>
                     <Jumbotron className=" m-0 jumbotron3">
                     
                     </Jumbotron>
-                    </LightSpeed>
+                    </Fade>
+                   
                 </div>
 
                 {/* <LightSpeed>

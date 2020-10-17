@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
+    CardTitle, CardImgOverlay, Button,Jumbotron, Container, Breadcrumb, BreadcrumbItem
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
   import { Loading } from './LoadingComponent';
@@ -9,24 +9,13 @@ import {
 import { baseUrl } from '../shared/baseUrl';
 
 
-function RenderProductItem ({product/* ,isLoading,errMess */}) {
-    // if (isLoading) {
-    //     {console.log(isLoading)}
-    //     return(
-    //             <Loading />
-    //     );
-    // }
-    // else if (errMess) {
-    //     return(
-    //             <h4>{errMess}</h4>
-    //     );
-    // }
-    // else 
+function RenderProductItem ({product}) {
+    
     return (
         <Fade delay={1000}>
         <Card className='card-primary'>
                 <Link to={`/product1/${product.id}`} >
-                  <CardImg width="100%"className='cardimg' /* src={product.image} */ src={baseUrl+ product.image} alt={baseUrl+ product.name} />
+                  <CardImg width="100%"className='cardimg'  src={baseUrl+ product.image} alt={baseUrl+ product.name} />
 
                   <CardImgOverlay className="product-name">
                       <CardTitle>{product.name}</CardTitle>
@@ -39,19 +28,7 @@ function RenderProductItem ({product/* ,isLoading,errMess */}) {
         </Fade >
     );
 };
-// const JumbotronUse =(props)=>{
-//     return(
-//                 <Jumbotron className="jumbotron1">
-//                     <div className="container">
-//                         <div className="row row-header">
-//                             <div className="col-12 col-sm-6">
-                            
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </Jumbotron>
-//     )
-// }
+
 const JumbotronUse =({isLoading,errMess})=>{
     return(
                 <Jumbotron className='jumbotron1'>
@@ -59,6 +36,7 @@ const JumbotronUse =({isLoading,errMess})=>{
                             <div className="row row-header">
                                 <div className="col-12 col-sm-6">
                                 </div>
+                                {/* <h1 className="text-white text-center display-5 text-margin">Tile Types</h1> */}
                             </div>
                         </div>
                 </Jumbotron>
@@ -85,25 +63,11 @@ function Product1(props){
     const product= props.catagory1.map((product)=>{
             return (
                 <div className='col-12 col-md-4  cardtile'key={product.id}>      
-                    <RenderProductItem product={product}
-                    //   isLoading={props.catagoryLoading} 
-                    //   errMess={props.catagoryErrMess}
-                    />
+                    <RenderProductItem product={product} />
                 </div>
             )
          });
-        // return(
-        //     <div>
-        //         <JumbotronUse/>
-        //         <div className='container'>          
-        //         <Content/>
-        //         <div className='row'>
-        //             {product}
-        //         </div>
-        //     </div>
-        //     </div>
-
-        // )
+        
         if (props.catagoryLoading) {
             return(
                 
@@ -120,8 +84,15 @@ function Product1(props){
                 
                 <div>
                     <JumbotronUse />
-                    <div className='container'>          
-                    <Content/>
+                    <div className='container'>  
+                    <div className="row">
+                        <Breadcrumb>
+
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Tile Types</BreadcrumbItem>
+                        </Breadcrumb>                
+                    </div>  
+                    <Content/>      
                     <div className='row'>
                         {product}
                     </div>
@@ -139,9 +110,5 @@ function Product1(props){
     
             )
     }
-
-
-
-
 
 export default Product1;

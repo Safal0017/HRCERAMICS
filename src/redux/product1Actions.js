@@ -1,69 +1,14 @@
-import {CATAGORY1} from './product1Types';
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
-//import Ratings from './rating';
-//import getRating from './rating'
-
-// export const postRatings = (ratings) =>(dispatch,getState)=> {
-//     const userRating = ratings;
-//     console.log(userRating)
-//     const words = ['one', 'two', 'three', 'four', 'five'];
-//     const rate = words[userRating-1];
-//     const newRatings = {
-//         // one: getState.one,
-//         // two: getState.two,
-//         // three: getState.three,
-//         // four: getState.four,
-//         // five: getState.five
-        
-//         one:0,
-//         two:0,
-//         three: 0,
-//         four: 0,
-//         five: 0
-
-//         // one: getRating.one,
-//         // two: getRating.two,
-//         // three: getRating.three,
-//         // four: getRating.four,
-//         // five:getRating.five
-//     };
-
-//     newRatings[rate] += 1;
-// console.log(newRatings);
-//     return fetch(baseUrl + 'rating', {
-//         method: "POST",
-//         body: JSON.stringify(newRatings),
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         credentials: "same-origin"
-//     })
-//     .then(response => {
-//         if (response.ok) {
-//           return response;
-//         } else {
-//           var error = new Error('Error ' + response.status + ': ' + response.statusText);
-//           error.response = response;
-//           throw error;
-//         }
-//       },
-//       error => {
-//             throw error;
-//       })
-//     .then(response => response.json())
-//     .then(response => dispatch(addRating(response)))
-//     .catch(error =>  { console.log('post rating', error.message); alert('Your rating could not be posted\nError: '+error.message); });
-// };
 
 //postRatings
-export const postRatings = (rating) => (dispatch) => {
+export const postRatings = (rating) => (dispatch)=>{
 
     var userRating = rating;
     console.log(userRating)
     var words = ['one', 'two', 'three', 'four', 'five'];
     var rate = words[userRating-1];
- 
+
     return fetch(baseUrl + 'rating')
     .then(response => {
         if(response.ok){
@@ -83,13 +28,13 @@ export const postRatings = (rating) => (dispatch) => {
     .then(newRatings => {
         newRatings[rate] += 1;
         console.log(newRatings);
-        fetch(baseUrl + 'rating', {
+        fetch(baseUrl + 'rating',{
             method: 'POST',
             body: JSON.stringify(newRatings),
             headers: {
                 "Content-Type": "application/json"
             },
-            credentials: 'same-origin'
+            credentials: "same-origin"
         })
         .then(response => {
             if(response.ok){
@@ -110,10 +55,13 @@ export const postRatings = (rating) => (dispatch) => {
         .catch(error => dispatch(ratingsFailed(error.message)));
         })
     .catch(error => dispatch(ratingsFailed(error.message))); 
-
+        
 }
+
+
 //fetchRatings
 export const fetchRatings = () => (dispatch) => {
+
 
     return fetch(baseUrl + 'rating')
     .then(response => {
@@ -161,14 +109,6 @@ export const fetchCatagory1 = () => (dispatch) => {
     .then(CATAGORY1 => dispatch(addCatagory(CATAGORY1)))
     .catch(error => dispatch(catagoryFailed(error.message)));
 
-
-
-
-    
-    
-    // setTimeout(() => {
-    //     dispatch(addCatagory(CATAGORY1));
-    // }, 1000);
 }
 
 export const catagoryLoading = () => ({
@@ -198,3 +138,4 @@ export const ratingsFailed = (errmess) => ({
     type: ActionTypes.RATINGS_FAILED,
     payload: errmess
 });
+

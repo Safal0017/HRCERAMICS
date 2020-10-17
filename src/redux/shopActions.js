@@ -1,13 +1,6 @@
-//import Shop from '../components/shopComponent';
-import { SHOPDATA } from './shopTypes';
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
-/* 
-export const shopDetails = ()=>{
-    return{
-        type: SHOPDATA
-    }
-} */
+
 
 
 export const fetchShop = () => (dispatch) => {

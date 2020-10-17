@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardImgOverlay,CardSubtitle, Button,Jumbotron, Row
+    CardTitle, CardImgOverlay, Button,Jumbotron, Breadcrumb, BreadcrumbItem
   } from 'reactstrap';
   import { Link } from 'react-router-dom';
   import { Loading } from './LoadingComponent';
   import { Fade  } from "react-awesome-reveal";
+  import { baseUrl } from '../shared/baseUrl';
+
 
 function RenderProductItem ({product}) {
     return (
         <Fade>
         <Card className='card-primary'>
                 <Link to={`/product2/${product.id}`} >
-                  <CardImg width="100%"className='cardimg' src={product.image} alt={product.name} />
+                  <CardImg width="100%"className='cardimg' src={baseUrl+ product.image} alt={baseUrl+ product.name} />
 
                   <CardImgOverlay className="product-name">
                       <CardTitle>{product.name}</CardTitle>
@@ -63,18 +65,7 @@ function Product2(props){
                 </div>
             )
          });
-        // return(
-        //     <div>
-        //         <JumbotronUse/>
-        //         <div className='container'>          
-        //         <Content/>
-        //         <div className='row'>
-        //             {product}
-        //         </div>
-        //     </div>
-        //     </div>
-
-        // )
+        
         if (props.catagoryLoading) {
             return(
                 
@@ -89,8 +80,15 @@ function Product2(props){
         else
         return(
             <div>
-                <JumbotronUse/>
-                <div className='container'>          
+                <JumbotronUse/>   
+                <div className='container'> 
+                <div className="row">
+                        <Breadcrumb>
+
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Tile Size</BreadcrumbItem>
+                        </Breadcrumb>                
+                    </div>         
                 <Content/>
                 <div className='row'>
                     {product}

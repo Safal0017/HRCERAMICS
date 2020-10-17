@@ -64,14 +64,14 @@ class Home2 extends Component
                     <CardDeck>  
                         <Card className="price-card">
                             <CardHeader className="text-center justify-content-center price-tag">
-                                <h4>1000-2000/<small>tile</small></h4>
+                                <h4>{category.price}{/* <small>/Box</small> */}</h4>
                                 <p>Price Range</p>
                             </CardHeader>
                             <CardFooter className="price-details">
                                 <CardTitle className="h5">{category.name}</CardTitle>
-                                <small>Available Sizes: </small>
+                                <small>Available Sizes: {category.size}</small>
                                 <br></br>
-                                <small>Offers: </small>
+                                <small>Offers: None</small>
                             </CardFooter>
                         </Card>
                     </CardDeck>

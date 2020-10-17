@@ -5,7 +5,7 @@ import {Catagory2} from './Catagory2';
 import { ShopDetails } from './shop';
 // export const store = createStore(productReducer)
 import { InitialFeedback, InitialRating } from './forms';
-import {initialStateRating, Ratings } from './rating';
+import { Ratings } from './rating';
 
 import {createStore, combineReducers, applyMiddleware } from 'redux';
 

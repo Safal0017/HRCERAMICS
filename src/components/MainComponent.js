@@ -13,10 +13,7 @@ import {fetchCatagory2} from '../redux/product2Actions';
 import { fetchRatings, postRatings} from '../redux/product1Actions';
 import { actions } from 'react-redux-form';
 //import { postRatings } from '../redux/product1Actions';
-import { Navbar, NavbarBrand,NavLink, Nav,Collapse,NavItem,Jumbotron, NavbarToggler, 
-   } from 'reactstrap';
-import { Form } from 'reactstrap';
-import { Loading } from './LoadingComponent';
+
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchShop } from '../redux/shopActions';
@@ -121,6 +118,7 @@ render() {
               
               <Route exact path='/shop' component={ProductWithIdsg} />
               <Route exact path="/contact" component={() => <Contact ratings={this.props.ratings.ratings}
+                                                          ratingLoading={this.props.fetchRatings.isLoading}
                                                                             postRatings={this.props.postRatings}
                                                                             resetFeedbackForm={this.props.resetFeedbackForm}
                                                                             resetRatingForm={this.props.resetRatingForm} />} ></Route>
